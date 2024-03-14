@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block start %}
+{{request.user}}
+<table style="width:100%" class="container my-4 col-6 border-1 border-warning shadow-lg text-black">
+  <tr>
+    <th>Roll No.</th>
+    <th>Name</th>
+    <th>Branch</th>
+    <th>E-mail</th>
+    <th>Phone</th>
+    <th>Actions</th>
+  </tr>
+    {% for d in data %}
+  <tr>
+    <td class="text-center">{{d.rollno}}</td>
+    <td class="text-center">{{d.name}}</td>
+    <td class="text-center">{{d.branch}}</td>
+    <td class="text-center">{{d.email}}</td>
+    <td class="text-center">{{d.phone}}</td>
+    <td class="text-center">
+      <a class="btn btn-danger" href="/delete/{{d.email}}">Delete</a>
+      <a class="btn btn-secondary" href="/update/{{d.email}}">Update</a>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock%}

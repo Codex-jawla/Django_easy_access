@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block start %}
+<h2>Update Page</h2>
+<form class="col-6 mx-auto mt-5 card p-3 shadow-lg" method="post">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="name" class="form-label">NAME</label>
+        <input type="text" class="form-control" id="name" value={{data.name}} name="username" >
+    </div>
+    <div class="mb-3">
+        <label for="roll" class="form-label">Roll no.</label>
+        <input type="number" class="form-control" id="roll" value={{data.rollno}} name="rollno" >
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email</label>
+        <input name="email" value={{data.email}} type="email" class="form-control"  id="exampleInputEmail1">
+    </div>
+    <div class="mb-3">
+        <label for="dept" class="form-label">Department</label>
+        <input type="text" class="form-control" name="dept" id="dept" value={{data.branch}} >
+    </div>
+    <div class="mb-3">
+        <label for="phone" class="form-label">Contact </label>
+        <input type="number" class="form-control" name="phone" value={{data.phone}} id="phone">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>
+{% endblock%}
